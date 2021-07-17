@@ -122,20 +122,9 @@ var P = function P(tall) {
 };
 
 var Person = /*#__PURE__*/ (function(_P) {
+  // 1.先让superClass的原型与subClass联系起来
   _inherits(Person, _P);
-
-  var _super = _createSuper(Person);
-
-  function Person(name, tall) {
-    var _this;
-
-    _classCallCheck(this, Person);
-
-    _this = _super.call(this, tall);
-    _this.name = name;
-    return _this;
-  }
-
+  // 2.然后先定义位于constructor以外的属性和方法(共享或静态)
   _createClass(Person, null, [
     {
       key: 'createGenerator',
@@ -190,6 +179,17 @@ var Person = /*#__PURE__*/ (function(_P) {
       })
     }
   ]);
+  // 3.取出superClass构造函数
+  var _super = _createSuper(Person);
+  // 4.创建subClass构造函数
+  function Person(name, tall) {
+    var _this;
 
+    _classCallCheck(this, Person);
+
+    _this = _super.call(this, tall);
+    _this.name = name;
+    return _this;
+  }
   return Person;
 })(P);
