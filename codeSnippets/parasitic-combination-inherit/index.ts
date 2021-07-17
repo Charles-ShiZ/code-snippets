@@ -8,6 +8,7 @@ Parent.prototype.getParentName = function() {
 };
 function Child(name, age) {
   Parent.call(this, name, age);
+  this.a = 'asdfasdf';
 }
 
 const prototype = Object.create(Parent.prototype);
